@@ -64,7 +64,7 @@ const start = async function (account, port, type) {
     });
     let dofusPath;
     try {
-        dofusPath = JSON.parse("" + fs.readFileSync(path.join(c.zaap, "repositories", "production", (type === 1 ? "retro" : type === 2 ? "dofus" : "wakfu"), "main", "release.json")))['location'];
+        dofusPath = JSON.parse("" + fs.readFileSync(path.join(c.zaap, "repositories", "production", (type === 1 ? "retro" : type === 2 ? "dofus" : "wakfu"), "dofus3", "release.json")))['location'];
         if (typeof dofusPath !== "string" || !fs.existsSync(dofusPath)) throw new Error("not a good path");
     } catch (e) {
         dofusPath = path.join(process.env.LOCALAPPDATA, 'Ankama', (type === 1 ? "Retro" : type === 2 ? "Dofus" : "Wakfu"));
@@ -85,7 +85,7 @@ const start = async function (account, port, type) {
     if (type === 2) {
         program.push("--port=26116");
         program.push("--gameName=dofus");
-        program.push("--gameRelease=main");
+        program.push("--gameRelease=dofus3");
         program.push("--instanceId=1");
         program.push("--hash=" + account.uuid);
         program.push("--canLogin=true");
